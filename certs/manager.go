@@ -52,7 +52,7 @@ func NewCertificateManager(storage StorageHandler, secret string, logger *logrus
 	}
 }
 
-// Extracted from: https://golang.org/src/crypto/tls/tls.go
+// parsePrivateKey; Extracted from: https://golang.org/src/crypto/tls/tls.go
 //
 // Attempt to parse the given private key DER block. OpenSSL 0.9.8 generates
 // PKCS#1 private keys by default, while OpenSSL 1.0.0 generates PKCS#8 keys.
@@ -284,7 +284,7 @@ func (c *CertificateManager) List(certIDs []string, mode CertificateType) (out [
 	return out
 }
 
-// Returns list of fingerprints
+// ListPublicKeys returns list of fingerprints
 func (c *CertificateManager) ListPublicKeys(keyIDs []string) (out []string) {
 	var rawKey []byte
 	var err error

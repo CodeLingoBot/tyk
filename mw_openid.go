@@ -85,7 +85,7 @@ func (k *OpenIDMW) getProviders() ([]openid.Provider, error) {
 	return providers, nil
 }
 
-// We don't want any of the error handling, we use our own
+// dummyErrorHandler; We don't want any of the error handling, we use our own
 func (k *OpenIDMW) dummyErrorHandler(e error, w http.ResponseWriter, r *http.Request) bool {
 	k.Logger().WithError(e).Warning("JWT Invalid")
 	return true

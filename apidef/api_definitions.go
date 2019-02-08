@@ -457,7 +457,7 @@ type BundleManifest struct {
 	Signature        string            `bson:"signature" json:"signature"`
 }
 
-// Clean will URL encode map[string]struct variables for saving
+// EncodeForDB; Clean will URL encode map[string]struct variables for saving
 func (a *APIDefinition) EncodeForDB() {
 	newVersion := make(map[string]VersionInfo)
 	for k, v := range a.VersionData.Versions {

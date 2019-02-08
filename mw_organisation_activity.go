@@ -92,7 +92,7 @@ func (k *OrganizationMonitor) ProcessRequest(w http.ResponseWriter, r *http.Requ
 	return k.ProcessRequestLive(r, orgSession)
 }
 
-// ProcessRequest will run any checks on the request on the way through the system, return an error to have the chain fail
+// ProcessRequestLive will run any checks on the request on the way through the system, return an error to have the chain fail
 func (k *OrganizationMonitor) ProcessRequestLive(r *http.Request, orgSession user.SessionState) (error, int) {
 	logger := k.Logger()
 

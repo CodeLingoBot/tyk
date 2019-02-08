@@ -163,7 +163,7 @@ type LogMessageEventHandler struct {
 	logger *logrus.Logger
 }
 
-// New enables the intitialisation of event handler instances when they are created on ApiSpec creation
+// Init; New enables the intitialisation of event handler instances when they are created on ApiSpec creation
 func (l *LogMessageEventHandler) Init(handlerConf interface{}) error {
 	conf := handlerConf.(map[string]interface{})
 	l.prefix = conf["prefix"].(string)

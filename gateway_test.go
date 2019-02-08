@@ -56,7 +56,7 @@ func resetTestConfig() {
 	config.SetGlobal(defaultTestConfig)
 }
 
-// simulate reloads in the background, i.e. writes to
+// reloadSimulation; simulate reloads in the background, i.e. writes to
 // global variables that should not be accessed in a
 // racy way like the policies and api specs maps.
 func reloadSimulation() {
@@ -788,7 +788,7 @@ func TestListener(t *testing.T) {
 	ts.RunExt(t, tests...)
 }
 
-// Admin api located on separate port
+// TestControlListener checks a case when Admin api located on separate port
 func TestControlListener(t *testing.T) {
 	ts := newTykTestServer(tykTestServerConfig{
 		sepatateControlAPI: true,

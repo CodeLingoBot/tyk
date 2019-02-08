@@ -321,7 +321,7 @@ func (r *RPCStorageHandler) Decrement(keyName string) {
 	}
 }
 
-// IncrementWithExpire will increment a key in redis
+// IncrememntWithExpire will increment a key in redis
 func (r *RPCStorageHandler) IncrememntWithExpire(keyName string, expire int64) int64 {
 
 	ibd := InboundData{
@@ -450,7 +450,7 @@ func (r *RPCStorageHandler) DeleteKey(keyName string) bool {
 	return ok == true
 }
 
-// DeleteKey will remove a key from the database without prefixing, assumes user knows what they are doing
+// DeleteRawKey will remove a key from the database without prefixing, assumes user knows what they are doing
 func (r *RPCStorageHandler) DeleteRawKey(keyName string) bool {
 	ok, err := rpc.FuncClientSingleton("DeleteRawKey", keyName)
 	if err != nil {
@@ -555,7 +555,7 @@ func (r *RPCStorageHandler) AppendToSetPipelined(key string, values []string) {
 	}
 }
 
-// SetScrollingWindow is used in the rate limiter to handle rate limits fairly.
+// SetRollingWindow is used in the rate limiter to handle rate limits fairly.
 func (r *RPCStorageHandler) SetRollingWindow(keyName string, per int64, val string, pipeline bool) (int, []interface{}) {
 	start := time.Now() // get current time
 	ibd := InboundData{

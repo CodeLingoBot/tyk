@@ -122,7 +122,7 @@ var rpcPurgeOnce sync.Once
 var purgeTicker = time.Tick(time.Second)
 var rpcPurgeTicker = time.Tick(10 * time.Second)
 
-// Create all globals and init connection handlers
+// setupGlobals; Create all globals and init connection handlers
 func setupGlobals() {
 
 	reloadMu.Lock()
@@ -343,7 +343,7 @@ func controlAPICheckClientCertificate(certLevel string, next http.Handler) http.
 	})
 }
 
-// Set up default Tyk control API endpoints - these are global, so need to be added first
+// loadAPIEndpoints; Set up default Tyk control API endpoints - these are global, so need to be added first
 func loadAPIEndpoints(muxer *mux.Router) {
 	hostname := config.Global().HostName
 	if config.Global().ControlAPIHostname != "" {
@@ -424,7 +424,7 @@ func generateOAuthPrefix(apiID string) string {
 	return "oauth-data." + apiID + "."
 }
 
-// Create API-specific OAuth handlers and respective auth servers
+// addOAuthHandlers; Create API-specific OAuth handlers and respective auth servers
 func addOAuthHandlers(spec *APISpec, muxer *mux.Router) *OAuthManager {
 	apiAuthorizePath := spec.Proxy.ListenPath + "tyk/oauth/authorize-client{_:/?}"
 	clientAuthPath := spec.Proxy.ListenPath + "oauth/authorize{_:/?}"

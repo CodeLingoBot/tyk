@@ -142,7 +142,7 @@ def MyAuthHook(request, session, metadata, spec):
 	`,
 }
 
-/* Value Extractor tests, using "header" source */
+/* TestValueExtractorHeaderSource; Extractor tests, using "header" source */
 // Goal of ID extractor is to cache auth plugin calls
 // Our `pythonBundleWithAuthCheck` plugin restrict more then 1 call
 // With ID extractor, it should run multiple times (because cache)

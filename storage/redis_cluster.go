@@ -305,7 +305,7 @@ func (r RedisCluster) Decrement(keyName string) {
 	}
 }
 
-// IncrementWithExpire will increment a key in redis
+// IncrememntWithExpire will increment a key in redis
 func (r RedisCluster) IncrememntWithExpire(keyName string, expire int64) int64 {
 	log.Debug("Incrementing raw key: ", keyName)
 	r.ensureConnection()
@@ -411,7 +411,7 @@ func (r RedisCluster) DeleteKey(keyName string) bool {
 	return true
 }
 
-// DeleteKey will remove a key from the database without prefixing, assumes user knows what they are doing
+// DeleteRawKey will remove a key from the database without prefixing, assumes user knows what they are doing
 func (r RedisCluster) DeleteRawKey(keyName string) bool {
 	r.ensureConnection()
 	_, err := r.singleton().Do("DEL", keyName)
@@ -422,7 +422,7 @@ func (r RedisCluster) DeleteRawKey(keyName string) bool {
 	return true
 }
 
-// DeleteKeys will remove a group of keys in bulk
+// DeleteScanMatch will remove a group of keys in bulk
 func (r RedisCluster) DeleteScanMatch(pattern string) bool {
 	r.ensureConnection()
 	log.Debug("Deleting: ", pattern)
@@ -715,7 +715,7 @@ func (r RedisCluster) SetRollingWindow(keyName string, per int64, value_override
 	return intVal, redVal[1].([]interface{})
 }
 
-// GetPrefix returns storage key prefix
+// GetKeyPrefix returns storage key prefix
 func (r RedisCluster) GetKeyPrefix() string {
 	return r.KeyPrefix
 }

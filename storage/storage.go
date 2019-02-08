@@ -56,7 +56,7 @@ type Handler interface {
 
 const defaultHashAlgorithm = "murmur64"
 
-// If hashing algorithm is empty, use legacy key generation
+// GenerateToken; If hashing algorithm is empty, use legacy key generation
 func GenerateToken(orgID, keyID, hashAlgorithm string) (string, error) {
 	if keyID == "" {
 		keyID = strings.Replace(uuid.NewV4().String(), "-", "", -1)

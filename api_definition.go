@@ -349,7 +349,7 @@ func (a APIDefinitionLoader) FromDashboardService(endpoint, secret string) ([]*A
 	return specs, nil
 }
 
-// FromCloud will connect and download ApiDefintions from a Mongo DB instance.
+// FromRPC will connect and download ApiDefintions from a Mongo DB instance.
 func (a APIDefinitionLoader) FromRPC(orgId string) ([]*APISpec, error) {
 	if rpc.IsEmergencyMode() {
 		return LoadDefinitionsFromRPCBackup()

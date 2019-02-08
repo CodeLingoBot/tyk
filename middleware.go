@@ -47,7 +47,7 @@ func createDynamicMiddleware(name string, isPre, useSession bool, baseMid BaseMi
 	return createMiddleware(dMiddleware)
 }
 
-// Generic middleware caller to make extension easier
+// createMiddleware; Generic middleware caller to make extension easier
 func createMiddleware(mw TykMiddleware) func(http.Handler) http.Handler {
 	// construct a new instance
 	mw.Init()

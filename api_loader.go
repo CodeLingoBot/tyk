@@ -525,7 +525,7 @@ func loadGlobalApps(router *mux.Router) {
 	}
 }
 
-// Create the individual API (app) specs based on live configurations and assign middleware
+// loadApps; Create the individual API (app) specs based on live configurations and assign middleware
 func loadApps(specs []*APISpec, muxer *mux.Router) {
 	hostname := config.Global().HostName
 	if hostname != "" {

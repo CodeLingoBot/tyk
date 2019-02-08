@@ -36,7 +36,7 @@ func (sa *StripAuth) ProcessRequest(w http.ResponseWriter, r *http.Request, _ in
 	return nil, http.StatusOK
 }
 
-// strips auth from query string params
+// stripFromParams strips auth from query string params
 func (sa *StripAuth) stripFromParams(r *http.Request) {
 
 	config := sa.Spec.Auth
@@ -60,7 +60,7 @@ func (sa *StripAuth) stripFromParams(r *http.Request) {
 	r.URL, _ = r.URL.Parse(reqUrlPtr.String())
 }
 
-// strips auth key from headers
+// stripFromHeaders strips auth key from headers
 func (sa *StripAuth) stripFromHeaders(r *http.Request) {
 
 	config := sa.Spec.Auth

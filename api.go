@@ -1426,7 +1426,7 @@ func oAuthClientTokensHandler(w http.ResponseWriter, r *http.Request) {
 	doJSONWrite(w, http.StatusOK, tokens)
 }
 
-// Get client details
+// getOauthClientDetails gets client details
 func getOauthClientDetails(keyName, apiID string) (interface{}, int) {
 	storageID := oauthClientStorageID(keyName)
 	apiSpec := getApiSpec(apiID)
@@ -1462,7 +1462,7 @@ func getOauthClientDetails(keyName, apiID string) (interface{}, int) {
 	return reportableClientData, http.StatusOK
 }
 
-// Delete Client
+// handleDeleteOAuthClient; Client
 func handleDeleteOAuthClient(keyName, apiID string) (interface{}, int) {
 	storageID := oauthClientStorageID(keyName)
 
@@ -1502,7 +1502,7 @@ func handleDeleteOAuthClient(keyName, apiID string) (interface{}, int) {
 
 const oAuthNotPropagatedErr = "OAuth client list isn't available or hasn't been propagated yet."
 
-// List Clients
+// getOauthClients; List Clients
 func getOauthClients(apiID string) (interface{}, int) {
 	filterID := prefixClient
 
@@ -1628,6 +1628,7 @@ func invalidateCacheHandler(w http.ResponseWriter, r *http.Request) {
 	doJSONWrite(w, http.StatusOK, apiOk("cache invalidated"))
 }
 
+// setContext; 
 // TODO: Don't modify http.Request values in-place. We must right now
 // because our middleware design doesn't pass around http.Request
 // pointers, so we have no way to modify the pointer in a middleware.

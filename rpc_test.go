@@ -176,7 +176,7 @@ func TestSyncAPISpecsRPCFailure_CheckGlobals(t *testing.T) {
 	}
 }
 
-// Our RPC layer too racy, but not harmul, mostly global variables like RPCIsClientConnected
+// TestSyncAPISpecsRPCFailure checks a case when Our RPC layer too racy, but not harmul, mostly global variables like RPCIsClientConnected
 func TestSyncAPISpecsRPCFailure(t *testing.T) {
 	// Mock RPC
 	dispatcher := gorpc.NewDispatcher()

@@ -279,7 +279,7 @@ func (s *StatsDSink) flush() {
 	}
 }
 
-// assumes b is a well-formed statsd metric like "job.event:1|c\n" (including newline)
+// writeStatsDMetric assumes b is a well-formed statsd metric like "job.event:1|c\n" (including newline)
 func (s *StatsDSink) writeStatsDMetric(b []byte) {
 	lenb := len(b)
 

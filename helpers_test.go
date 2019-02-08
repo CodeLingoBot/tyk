@@ -192,6 +192,7 @@ func withAuth(r *http.Request) *http.Request {
 	return r
 }
 
+// createSession; 
 // TODO: replace with /tyk/keys/create call
 func createSession(sGen ...func(s *user.SessionState)) string {
 	key := generateToken("", "")

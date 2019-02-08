@@ -53,7 +53,7 @@ func dialer(addr string, timeout time.Duration) (net.Conn, error) {
 	return net.DialTimeout(grpcUrl.Scheme, grpcUrlString, timeout)
 }
 
-// Dispatch takes a CoProcessMessage and sends it to the CP.
+// DispatchObject takes a CoProcessMessage and sends it to the CP.
 func (d *GRPCDispatcher) DispatchObject(object *coprocess.Object) (*coprocess.Object, error) {
 	newObject, err := grpcClient.Dispatch(context.Background(), object)
 	if err != nil {

@@ -788,7 +788,7 @@ func (accessTokenGen) GenerateAccessToken(data *osin.AccessData, generaterefresh
 	return
 }
 
-// LoadRefresh will load access data from Redis
+// GetUser will load access data from Redis
 func (r *RedisOsinStorageInterface) GetUser(username string) (*user.SessionState, error) {
 	key := username
 	log.Debug("Loading User key: ", key)

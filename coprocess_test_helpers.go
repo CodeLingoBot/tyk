@@ -123,7 +123,7 @@ func TestTykTriggerEvent(eventName, eventPayload string) {
 
 /* Middleware */
 
-//export applyTestHooks
+// applyTestHooks; export applyTestHooks
 func applyTestHooks(objectPtr unsafe.Pointer) {
 	objectStruct := (*C.struct_CoProcessMessage)(objectPtr)
 	objectBytes := C.GoBytes(objectStruct.p_data, objectStruct.length)

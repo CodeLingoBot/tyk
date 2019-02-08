@@ -46,6 +46,7 @@ type traceResponse struct {
 	Logs     string `json:"logs"`
 }
 
+// traceHandler; 
 // swagger:operation POST /trace trace trace
 //
 // Tracing request

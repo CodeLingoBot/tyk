@@ -110,7 +110,7 @@ func (w *WebHookHandler) Init(handlerConf interface{}) error {
 	return nil
 }
 
-// hookFired checks if an event has been fired within the EventTimeout setting
+// WasHookFired checks if an event has been fired within the EventTimeout setting
 func (w *WebHookHandler) WasHookFired(checksum string) bool {
 	if _, err := w.store.GetKey(checksum); err != nil {
 		// Key not found, so hook is in limit

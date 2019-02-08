@@ -21,7 +21,7 @@ type JSVMEventHandler struct {
 	SpecJSON   string
 }
 
-// New enables the intitialisation of event handler instances when they are created on ApiSpec creation
+// Init; New enables the intitialisation of event handler instances when they are created on ApiSpec creation
 func (l *JSVMEventHandler) Init(handlerConf interface{}) error {
 	l.methodName = handlerConf.(map[string]interface{})["name"].(string)
 

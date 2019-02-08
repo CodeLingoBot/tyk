@@ -170,7 +170,7 @@ func (b *BatchRequestHandler) HandleBatchRequest(w http.ResponseWriter, r *http.
 	doJSONWrite(w, http.StatusOK, replySet)
 }
 
-// HandleBatchRequest is the actual http handler for a batch request on an API definition
+// ManualBatchRequest is the actual http handler for a batch request on an API definition
 func (b *BatchRequestHandler) ManualBatchRequest(requestObject []byte) ([]byte, error) {
 	// Decode request
 	var batchRequest BatchRequestStructure

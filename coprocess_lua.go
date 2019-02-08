@@ -176,7 +176,7 @@ func (d *LuaDispatcher) LoadModules() {
 	}
 }
 
-//export LoadCachedModules
+// LoadCachedModules; export LoadCachedModules
 func LoadCachedModules(luaState unsafe.Pointer) {
 	for moduleName, moduleContents := range gModuleCache {
 		cModuleName := C.CString(moduleName)
@@ -187,7 +187,7 @@ func LoadCachedModules(luaState unsafe.Pointer) {
 	}
 }
 
-//export LoadCachedMiddleware
+// LoadCachedMiddleware; export LoadCachedMiddleware
 func LoadCachedMiddleware(luaState unsafe.Pointer) {
 	for middlewareName, middlewareContents := range gMiddlewareCache {
 		cMiddlewareName := C.CString(middlewareName)

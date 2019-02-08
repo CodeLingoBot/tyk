@@ -25,13 +25,13 @@ func (kb *keyBuilder) Reset() *keyBuilder {
 	return kb
 }
 
-// Returns content of internal buffer, converted to string.
+// Key returns content of internal buffer, converted to string.
 // Safe for using as key for storing item, immutable
 func (kb *keyBuilder) Key() string {
 	return string(kb.buf)
 }
 
-// Returns string representation of internal buffer.
+// UnsafeKey returns string representation of internal buffer.
 // Mutable, sequential writes to keyBuilder will
 // also mutate returned representation.
 // Safe for lookups by key.
